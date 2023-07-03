@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComixHub.Blazor", "ComixHub.Blazor\ComixHub.Blazor.csproj", "{311D4B86-FA20-4CC1-8019-3C49C69274A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComixHub.Blazor", "ComixHub.Blazor\ComixHub.Blazor.csproj", "{311D4B86-FA20-4CC1-8019-3C49C69274A3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComixHub.Application", "ComixHub.Application\ComixHub.Application.csproj", "{62C9A990-BC35-44AC-8174-1E154DE4070D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComixHub.Core", "ComixHub.Core\ComixHub.Core.csproj", "{B3E95309-7D26-42E7-AEFB-950290F41150}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComixHub.Infrastructure", "ComixHub.Infrastructure\ComixHub.Infrastructure.csproj", "{ACDBAD4E-2B38-416C-A878-127329ACA296}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{311D4B86-FA20-4CC1-8019-3C49C69274A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{311D4B86-FA20-4CC1-8019-3C49C69274A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{311D4B86-FA20-4CC1-8019-3C49C69274A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62C9A990-BC35-44AC-8174-1E154DE4070D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62C9A990-BC35-44AC-8174-1E154DE4070D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62C9A990-BC35-44AC-8174-1E154DE4070D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62C9A990-BC35-44AC-8174-1E154DE4070D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3E95309-7D26-42E7-AEFB-950290F41150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3E95309-7D26-42E7-AEFB-950290F41150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3E95309-7D26-42E7-AEFB-950290F41150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3E95309-7D26-42E7-AEFB-950290F41150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACDBAD4E-2B38-416C-A878-127329ACA296}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACDBAD4E-2B38-416C-A878-127329ACA296}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACDBAD4E-2B38-416C-A878-127329ACA296}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACDBAD4E-2B38-416C-A878-127329ACA296}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
