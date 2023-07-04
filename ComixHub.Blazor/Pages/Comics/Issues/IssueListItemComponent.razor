@@ -1,0 +1,16 @@
+﻿@using ComixHub.Application.Issues.DTOs;
+
+@if (Issue is not null)
+{
+    <article>
+        <figure>
+            <img src=@Issue.ImageUrl alt=$"{@Issue.Title} image" />
+        </figure>
+        <h4>@Issue.Title</h4>
+    </article>
+}
+
+@code {
+    [Parameter]
+    public IssueListItem? Issue { get; set; }
+}

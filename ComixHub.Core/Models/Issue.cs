@@ -2,15 +2,18 @@
 
 namespace ComixHub.Core.Models
 {
+    [BsonIgnoreExtraElements]
     public class Issue : BaseEntity
     {
         [BsonElement("title")]
         public string Title { get; set; }
 
-        [BsonElement("description")]
+        // TODO: Rename
+        [BsonElement("comic_description")]
         public string Description { get; set; }
 
-        [BsonElement("image_url")]
+        // TODO: Rename
+        [BsonElement("imageUrl")]
         public string ImageUrl { get; set; }
 
         [BsonElement("publish_date")]

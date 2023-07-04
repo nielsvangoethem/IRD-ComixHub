@@ -1,13 +1,29 @@
+using ComixHub.Application;
 using ComixHub.Blazor.Data;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+using ComixHub.Core.Services;
+using ComixHub.Core.Settings;
+using ComixHub.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add MediatR
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<ApplicationAssembyMarker>());
+
+// Add automapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+// Add ComixHub MongoDB settings
+builder.Services.Configure<ComixHubDatabaseSettings>(builder.Configuration.GetSection("ComixHubDatabase"));
+
+// Add ComicsService
+// A singleton per the official guidelines: https://mongodb.github.io/mongo-csharp-driver/2.14/reference/driver/connecting/#re-use
+builder.Services.AddSingleton<IComicsService, ComicsService>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddTransient<IssuesService>();
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 

@@ -1,0 +1,22 @@
+﻿@page "/comics/issues"
+@using ComixHub.Blazor.Data
+@using ComixHub.Blazor.Pages.Comics.Issues
+@inject IssuesService IssuesService
+
+<main>
+    <h3>Issues</h3>
+
+    @if (issues == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <section>
+            @foreach (var issue in issues)
+            {
+                <IssueListItemComponent Issue="issue" />
+            }
+        </section>
+    }
+</main>

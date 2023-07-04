@@ -19,7 +19,7 @@ namespace ComixHub.Infrastructure.Services
             _issues = mongoDb.GetCollection<Issue>(ComixHubDataBaseSettings.Value.IssuesCollectionName);
         }
 
-        public async Task<IEnumerable<Issue>> GetIssuesAsync(QueryParameters<IssueFilters> queryParameters)
+        public async Task<(IEnumerable<Issue>, long total)> GetIssuesAsync(QueryParameters<IssueFilters> queryParameters)
         {
             var filter = new IssueFilterBuilder()
                                 .WithTitle(queryParameters.Filters.Title)
@@ -35,12 +35,13 @@ namespace ComixHub.Infrastructure.Services
 
             sort.Ascending("Title");
 
+            var result = _issues.Find(filter)
+                            .Sort(sort);
 
-            return await _issues.Find(filter)
-                            .Sort(sort)
+            return (await result
                             .Skip((queryParameters.PageNumber - 1) * queryParameters.PageSize)
                             .Limit(queryParameters.PageSize)
-                            .ToListAsync();
+                            .ToListAsync(), await result.CountDocumentsAsync());
         }
 
         public async Task<Issue> GetIssueAsync(string issueId)

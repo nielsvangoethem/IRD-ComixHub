@@ -16,13 +16,8 @@
 
 
 	<ItemGroup>
-		<ProjectReference Include="..\ComixHub.Core\ComixHub.Core.csproj" />
-		<ProjectReference Include="..\ComixHub.Infrastructure\ComixHub.Infrastructure.csproj" />
-	</ItemGroup>
-
-
-	<ItemGroup>
-	  <Folder Include="Utils\" />
+		<ProjectReference Include="..\ComixVerse.Core\ComixVerse.Core.csproj" />
+		<ProjectReference Include="..\ComixVerse.Infrastructure\ComixVerse.Infrastructure.csproj" />
 	</ItemGroup>
 
 </Project>
