@@ -2,6 +2,7 @@
 @using ComixHub.Blazor.Data
 @using ComixHub.Blazor.Pages.Comics.Issues
 @inject IssuesService IssuesService
+@inject IJSRuntime JSRuntime
 
 <div class="container">
     <h3>Issues</h3>
@@ -23,4 +24,8 @@
             }
         </section>
     }
+
+    <button @onclick="GoToTop" class="btn btn-light fixed-button">
+        <span class="oi oi-arrow-top"></span> GO TO TOP
+    </button>
 </div>

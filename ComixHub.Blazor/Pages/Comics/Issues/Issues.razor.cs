@@ -1,5 +1,6 @@
 using ComixHub.Blazor.Data;
 using ComixHub.Application.Issues.DTOs;
+using Microsoft.JSInterop;
 
 namespace ComixHub.Blazor.Pages.Comics.Issues
 {
@@ -26,6 +27,11 @@ namespace ComixHub.Blazor.Pages.Comics.Issues
         {
             (issues, var total) = await IssuesService.GetIssues(TitleFilter);
             StateHasChanged(); // Notify the component to re-render.
+        }
+
+        public async Task GoToTop()
+        {
+            await JSRuntime.InvokeVoidAsync("scrollToTop");
         }
     }
 }

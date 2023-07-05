@@ -19,7 +19,7 @@ namespace ComixHub.Blazor.Data
             var result = await _mediator.Send(new GetIssuesQuery()
             {
                 PageNumber = 1,
-                PageSize = 25,
+                PageSize = 50,
                 Title = title
             });
             return (result.Items, result.Total);
