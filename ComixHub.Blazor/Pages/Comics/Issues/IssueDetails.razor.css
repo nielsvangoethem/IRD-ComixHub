@@ -1,0 +1,57 @@
+﻿/* Set the font-family for the entire page */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Style the h3 heading */
+h3 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 0.5em;
+}
+
+/* Style the span that holds the publish date */
+span {
+    display: block;
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 1em;
+}
+
+/* Style the paragraph that holds the description */
+p {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.5em;
+    margin-bottom: 1em;
+}
+
+/* Style the figure that holds the image */
+figure {
+    margin-bottom: 1em;
+}
+
+    /* Style the image */
+    figure img {
+        max-width: 30%;
+        height: auto;
+    }
+
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+    /* Style the table data cells */
+    table td {
+        padding: 0.5em;
+        border: 1px solid #ccc;
+    }
+
+        /* Style the table data cells with class 'label' */
+        table td.label {
+            font-weight: bold;
+            color: #333;
+        }

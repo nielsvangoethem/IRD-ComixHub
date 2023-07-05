@@ -3,10 +3,12 @@
 @if (Issue is not null)
 {
     <article>
-        <figure>
-            <img src=@Issue.ImageUrl alt=$"{@Issue.Title} image" />
-        </figure>
-        <h4>@Issue.Title</h4>
+        <a href="@($"comics/issues/{Issue.Id}")" class="comic-link">
+            <figure>
+                <img src=@Issue.ImageUrl alt=$"{@Issue.Title} image" />
+            </figure>
+            <h5>@Issue.Title</h5>
+        </a>
     </article>
 }
 

@@ -1,5 +1,6 @@
 using ComixHub.Application;
 using ComixHub.Blazor.Data;
+using ComixHub.Blazor.Shared.Services;
 using ComixHub.Core.Services;
 using ComixHub.Core.Settings;
 using ComixHub.Infrastructure.Services;
@@ -24,6 +25,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddTransient<IssuesService>();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<NavigationService>();
+
 
 var app = builder.Build();
 
