@@ -2,14 +2,12 @@
 
 @if (Issue is not null)
 {
-    <article>
-        <a href="@($"comics/issues/{Issue.Id}")" class="comic-link">
-            <figure>
-                <img src=@Issue.ImageUrl alt=$"{@Issue.Title} image" />
-            </figure>
-            <h5>@Issue.Title</h5>
-        </a>
-    </article>
+    <RadzenCard class="rz-my-4 rz-mx-auto" Style="max-width: 244px">
+        <RadzenLink Path="@($"comics/issues/{Issue.Id}")">
+            <RadzenImage Path="@Issue.ImageUrl" Style="width: 100%" />
+            <RadzenText TextStyle="TextStyle.DisplayH5" TextAlign="TextAlign.Center">@Issue.Title</RadzenText>
+        </RadzenLink>
+    </RadzenCard>
 }
 
 @code {

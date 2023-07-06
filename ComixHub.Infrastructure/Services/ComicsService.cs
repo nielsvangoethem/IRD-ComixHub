@@ -30,18 +30,20 @@ namespace ComixHub.Infrastructure.Services
             string sortBy = string.IsNullOrWhiteSpace(queryParameters.SortBy) ? "PublishDate" : queryParameters.SortBy;
 
             var sort = sortBy == "PublishDate" || queryParameters.SortDescending
-                ? sortBuilder.Descending(sortBy)
-                : sortBuilder.Ascending(sortBy);
+                ? sortBuilder.Descending(sortBy).Ascending("_id")
+                : sortBuilder.Ascending(sortBy).Ascending("_id");
 
             sort.Ascending("Title");
 
             var result = _issues.Find(filter)
                             .Sort(sort);
 
+            var total = await result.CountDocumentsAsync();
+
             return (await result
-                            .Skip((queryParameters.PageNumber - 1) * queryParameters.PageSize)
+                            .Skip(queryParameters.PageNumber * queryParameters.PageSize)
                             .Limit(queryParameters.PageSize)
-                            .ToListAsync(), await result.CountDocumentsAsync());
+                            .ToListAsync(), total);
         }
 
         public async Task<Issue> GetIssueAsync(string issueId)

@@ -1,33 +1,31 @@
 ﻿@page "/comics/issues"
+@using ComixHub.Application.Issues.DTOs;
 @using ComixHub.Blazor.Data
 @using ComixHub.Blazor.Pages.Comics.Issues
+@using ComixHub.Blazor.Shared.Services;
 @inject IssuesService IssuesService
 @inject IJSRuntime JSRuntime
+@inject DebounceService DebounceService
 
 <PageTitle>Issues</PageTitle>
 
-<div class="container">
-    <h3>Issues</h3>
+<RadzenText TextStyle="TextStyle.DisplayH2" TextAlign="TextAlign.Center">Issues</RadzenText>
 
-    <div class="filters input-group">
-        <input class="form-text" @bind="TitleFilter" />
-    </div>
+@if (issues == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Start">
+        <RadzenTextBox @bind-Value="TitleFilter" @oninput="@((ChangeEventArgs args) => DebounceService.Debounce(() => TitleFilterChanged(args.Value.ToString())))" Placeholder="Title" />
+    </RadzenStack>
 
-    @if (issues == null)
-    {
-        <p><em>Loading...</em></p>
-    }
-    else
-    {
-        <section>
-            @foreach (var issue in issues)
-            {
-                <IssueListItemComponent Issue="issue" />
-            }
-        </section>
-    }
+    <RadzenDataList Data="@issues" TItem="IssueListItem" ColumnCount="4" WrapItems="true">
+        <Template Context="issue">
+            <IssueListItemComponent Issue="issue" />
+        </Template>
+    </RadzenDataList>
 
-    <button @onclick="GoToTop" class="btn btn-light fixed-button">
-        <span class="oi oi-arrow-top"></span> GO TO TOP
-    </button>
-</div>
+    <RadzenPager Count="(int)total" PageNumbersCount="5" PageSize="_pageSize" PageChanged="@PageChanged" />
+}

@@ -26,6 +26,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddTransient<IssuesService>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<NavigationService>();
+builder.Services.AddSingleton<DebounceService>();
 
 
 var app = builder.Build();

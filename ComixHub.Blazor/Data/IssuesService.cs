@@ -14,15 +14,15 @@ namespace ComixHub.Blazor.Data
             _mediator = mediator;
         }
 
-        public async Task<(IEnumerable<IssueListItem>, long)> GetIssues(string title = null)
+        public async Task<(IEnumerable<IssueListItem>, int)> GetIssues(int pageNumber, int pageSize, string title = null)
         {
             var result = await _mediator.Send(new GetIssuesQuery()
             {
-                PageNumber = 1,
-                PageSize = 50,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
                 Title = title
             });
-            return (result.Items, result.Total);
+            return (result.Items, (int)result.Total);
         }
 
         public async Task<IssueDetailItem> GetIssue(string id)

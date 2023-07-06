@@ -4,12 +4,11 @@
 @inject IssuesService IssuesService
 @inject NavigationService NavigationService
 
-<div class="actions">
-    <button class="btn btn-outline-dark" @onclick="GoBack">
-        <span class="oi oi-arrow-left"></span>
-        BACK
-    </button>
-</div>
+<RadzenStack Orientation="Orientation.Horizontal">
+    <RadzenButton Variant="Variant.Outlined" AlignItems="AlignItems.Center" Click="GoBack" Icon="arrow_back">
+        Back
+    </RadzenButton>
+</RadzenStack>
 
 @if (issue is not null)
 {
