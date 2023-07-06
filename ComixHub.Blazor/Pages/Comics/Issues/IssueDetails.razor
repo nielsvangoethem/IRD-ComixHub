@@ -14,50 +14,26 @@
 {
     <PageTitle>@issue.Title</PageTitle>
 
-    <h3>@issue.Title</h3>
-    <span>@issue.PublishDate</span>
+    <RadzenText TextStyle="TextStyle.DisplayH3">@issue.Title</RadzenText>
+    <RadzenText TextStyle="TextStyle.Caption">@issue.PublishDate</RadzenText>
 
-    <p>@issue.Description</p>
+    <RadzenStack AlignItems="AlignItems.Start" JustifyContent="JustifyContent.Center" Orientation="Orientation.Horizontal">
+        <RadzenImage Path="@issue.ImageUrl" Style="width: 20vw" alt="@issue.Title image" />
+        <RadzenText TextStyle="TextStyle.Body1" class="rz-my-0">@issue.Description</RadzenText>
+    </RadzenStack>
 
-    <figure>
-        <img src=@issue.ImageUrl alt="@($"{issue.Title} image")" />
-    </figure>
-
-    <table>
-        <tbody>
-            <tr>
-                <td class="label">Rating:</td>
-                <td>@issue.Rating</td>
-            </tr>
-            <tr>
-                <td class="label">Price:</td>
-                <td>@issue.Price</td>
-            </tr>
-            <tr>
-                <td class="label">Writer:</td>
-                <td>@issue.Writer</td>
-            </tr>
-            <tr>
-                <td class="label">Inker:</td>
-                <td>@issue.Inker</td>
-            </tr>
-            <tr>
-                <td class="label">Colorist:</td>
-                <td>@issue.Colorist</td>
-            </tr>
-            <tr>
-                <td class="label">Letterer:</td>
-                <td>@issue.Letterer</td>
-            </tr>
-            <tr>
-                <td class="label">Penciler:</td>
-                <td>@issue.Penciler</td>
-            </tr>
-            <tr>
-                <td class="label">Editor:</td>
-                <td>@issue.Editor</td>
-            </tr>
-        </tbody>
-    </table>
-
+    <RadzenStack Orientation="Orientation.Horizontal">
+        <RadzenStack Gap="0">
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Rating:</strong> @issue.Rating</RadzenText>
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Price:</strong> @issue.Price</RadzenText>
+        </RadzenStack>
+        <RadzenStack class="rz-ml-auto" Gap="0">
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Writer:</strong> @issue.Writer</RadzenText>
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Inker:</strong> @issue.Inker</RadzenText>
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Colorist:</strong> @issue.Colorist</RadzenText>
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Letterer:</strong> @issue.Letterer</RadzenText>
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Penciler:</strong> @issue.Penciler</RadzenText>
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Editor:</strong> @issue.Editor</RadzenText>
+        </RadzenStack>
+    </RadzenStack>
 }
