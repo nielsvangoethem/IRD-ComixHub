@@ -1,7 +1,19 @@
-﻿section {
+﻿/*section {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
     width: 100%;
     justify-content: space-between;
 }
+
+.filters {
+    margin-bottom: 1rem;
+}
+
+.fixed-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100;
+}
+*/

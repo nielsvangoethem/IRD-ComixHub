@@ -1,0 +1,39 @@
+﻿@page "/comics/issues/{id}"
+@using ComixHub.Blazor.Data;
+@using ComixHub.Blazor.Shared.Services;
+@inject IssuesService IssuesService
+@inject NavigationService NavigationService
+
+<RadzenStack Orientation="Orientation.Horizontal">
+    <RadzenButton Variant="Variant.Outlined" AlignItems="AlignItems.Center" Click="GoBack" Icon="arrow_back">
+        Back
+    </RadzenButton>
+</RadzenStack>
+
+@if (issue is not null)
+{
+    <PageTitle>@issue.Title</PageTitle>
+
+    <RadzenText TextStyle="TextStyle.DisplayH3">@issue.Title</RadzenText>
+    <RadzenText TextStyle="TextStyle.Caption">@issue.PublishDate</RadzenText>
+
+    <RadzenStack AlignItems="AlignItems.Start" JustifyContent="JustifyContent.Center" Orientation="Orientation.Horizontal">
+        <RadzenImage Path="@issue.ImageUrl" Style="width: 20vw" alt="@issue.Title image" />
+        <RadzenText TextStyle="TextStyle.Body1" class="rz-my-0">@issue.Description</RadzenText>
+    </RadzenStack>
+
+    <RadzenStack Orientation="Orientation.Horizontal">
+        <RadzenStack Gap="0">
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Rating:</strong> @issue.Rating</RadzenText>
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Price:</strong> @issue.Price</RadzenText>
+        </RadzenStack>
+        <RadzenStack class="rz-ml-auto" Gap="0">
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Writer:</strong> @issue.Writer</RadzenText>
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Inker:</strong> @issue.Inker</RadzenText>
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Colorist:</strong> @issue.Colorist</RadzenText>
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Letterer:</strong> @issue.Letterer</RadzenText>
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Penciler:</strong> @issue.Penciler</RadzenText>
+            <RadzenText TextStyle="TextStyle.Body2" class="rz-my-1"><strong>Editor:</strong> @issue.Editor</RadzenText>
+        </RadzenStack>
+    </RadzenStack>
+}

@@ -25,28 +25,29 @@ namespace ComixHub.Core.Models
         [BsonElement("imprint")]
         public string Imprint { get; set; }
 
-        [BsonElement("rating")]
+        // TODO: Remove semicolons
+        [BsonElement("rating:")]
         public string Rating { get; set; }
 
-        [BsonElement("price")]
+        [BsonElement("price:")]
         public string Price { get; set; }
 
-        [BsonElement("writer")]
+        [BsonElement("writer:")]
         public string Writer { get; set; }
 
-        [BsonElement("inker")]
+        [BsonElement("inker:")]
         public string Inker { get; set; }
 
-        [BsonElement("colorist")]
+        [BsonElement("colorist:")]
         public string Colorist { get; set; }
 
-        [BsonElement("letterer")]
+        [BsonElement("letterer:")]
         public string Letterer { get; set; }
 
-        [BsonElement("penciler")]
+        [BsonElement("penciler:")]
         public string Penciler { get; set; }
 
-        [BsonElement("editor")]
+        [BsonElement("editor:")]
         public string Editor { get; set; }
     }
 }

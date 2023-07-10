@@ -1,4 +1,9 @@
-﻿article {
+﻿/*.comic-link {
+    text-decoration: none;
+    color: black;
+}
+
+article {
     flex: 1 0 20%;
     max-width: 244px;
 }
@@ -20,3 +25,4 @@
     article h4 {
         font-size: 1.2rem;
     }
+*/

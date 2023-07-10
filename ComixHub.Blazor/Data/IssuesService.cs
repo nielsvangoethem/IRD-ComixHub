@@ -1,4 +1,5 @@
 ﻿using ComixHub.Application.Issues.DTOs;
+using ComixHub.Application.Issues.Queries.GetIssueById;
 using ComixHub.Application.Issues.Queries.GetIssues;
 using MediatR;
 
@@ -13,14 +14,20 @@ namespace ComixHub.Blazor.Data
             _mediator = mediator;
         }
 
-        public async Task<(IEnumerable<IssueListItem>, long)> GetIssues()
+        public async Task<(IEnumerable<IssueListItem>, int)> GetIssues(int pageNumber, int pageSize, string title = null)
         {
             var result = await _mediator.Send(new GetIssuesQuery()
             {
-                PageNumber = 1,
-                PageSize = 25,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                Title = title
             });
-            return (result.Items, result.Total);
+            return (result.Items, (int)result.Total);
+        }
+
+        public async Task<IssueDetailItem> GetIssue(string id)
+        {
+            return await _mediator.Send(new GetIssueByIdQuery() { Id = id });
         }
     }
 }
